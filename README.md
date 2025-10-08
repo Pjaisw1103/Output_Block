@@ -148,5 +148,5 @@ output "container_name" {
   value       = module.azurerm-cntr.cntr-name
   description = "Name of the Storage Container"
 }
+
 <h2 align="center">🧹 Destroy Resources</h2> <pre> terraform destroy </pre>
-<h2 align="center">👩‍💻 Author</h2> <p align="center"> <b>Priya Jaiswal</b><br> 🌐 Terraform | ☁️ Azure | 🚀 DevOps Enthusiast<br> 📘 GitHub: <a href="https://github.com/Pjaisw1103">Pjaisw1103</a><br> 💬 “Automating Cloud Infrastructure with Terraform Modules!” </p> ```
