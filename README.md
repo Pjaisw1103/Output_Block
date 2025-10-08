@@ -1,5 +1,5 @@
 🌟 Terraform Azure Storage Automation (Dev & Prod) 🌟
-<h1 align="center">☁️✨ Terraform Azure Storage Automation (Dev & Prod) ✨☁️</h1>
+<h3 align="center">☁️✨ Terraform Azure Storage Automation (Dev & Prod) ✨☁️</h3>
 
 <p align="center">
   <a href="https://www.terraform.io/">
@@ -150,4 +150,4 @@ output "container_name" {
 }
 
 <h2 align="center">🧹 Destroy Resources</h2> <pre> terraform destroy </pre>
-<p align="center"> <b>Priya Jaiswal</b><br> 🌐 Terraform | ☁️ Azure | 🚀 DevOps Enthusiast<br> 📘 GitHub: <a href="https://github.com/Pjaisw1103">Pjaisw1103</a><br> 💬 “Automating Cloud Infrastructure with Terraform Modules!” </p>
+<h2 align="center">👩‍💻 Author</h2> <p align="center"> <b>Priya Jaiswal</b><br> 🌐 Terraform | ☁️ Azure | 🚀 DevOps Enthusiast<br> 📘 GitHub: <a href="https://github.com/Pjaisw1103">Pjaisw1103</a><br> 💬 “Automating Cloud Infrastructure with Terraform Modules!” </p>
