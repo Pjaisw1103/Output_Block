@@ -54,7 +54,9 @@
 
 ---
 
-⚙️ Folder Structure
+<h2 align="center">⚙️ Folder Structure</h2>
+
+<pre>
 Root/
 ├── main.tf          # Calls all modules
 ├── provider.tf      # Azure provider configuration
@@ -69,51 +71,69 @@ Module/
 │   └── main.tf
 └── azurerm_storage_container/
     └── main.tf
+</pre>
 
-⚙️ Prerequisites
+---
 
-✅ Terraform installed
+<h2 align="center">⚙️ Prerequisites</h2>
 
-✅ Azure CLI installed (az login)
+<ul>
+<li>✅ Terraform installed</li>
+<li>✅ Azure CLI installed (<code>az login</code>)</li>
+<li>✅ Active Azure Subscription</li>
+</ul>
 
-✅ Active Azure Subscription
+---
 
-🪜 Steps to Deploy
+<h2 align="center">🪜 Steps to Deploy</h2>
 
-1️⃣ Clone repository:
-
+<ol>
+<li><b>Clone repository:</b>
+<pre>
 git clone https://github.com/Pjaisw1103/Output_Block.git
 cd Output_Block
+</pre>
+</li>
 
-
-2️⃣ Initialize Terraform:
-
+<li><b>Initialize Terraform:</b>
+<pre>
 terraform init
+</pre>
+</li>
 
-
-3️⃣ Validate configuration:
-
+<li><b>Validate configuration:</b>
+<pre>
 terraform validate
+</pre>
+</li>
 
-
-4️⃣ Plan deployment:
-
+<li><b>Plan deployment:</b>
+<pre>
 terraform plan
+</pre>
+</li>
 
-
-5️⃣ Apply configuration:
-
+<li><b>Apply configuration:</b>
+<pre>
 terraform apply
+</pre>
+</li>
 
-
-6️⃣ View outputs:
-
+<li><b>View outputs:</b>
+<pre>
 Outputs:
 rg_name              = "demo-rg"
 storage_account_name = "demostrg"
 container_name       = "democntr"
+</pre>
+</li>
+</ol>
 
-📤 Terraform Output Block Example
+---
+
+<h2 align="center">📤 Terraform Output Block Example</h2>
+
+```hcl
 output "rg_name" {
   value       = module.azurerm-rg.rg-name
   description = "Name of the Resource Group"
@@ -128,14 +148,5 @@ output "container_name" {
   value       = module.azurerm-cntr.cntr-name
   description = "Name of the Storage Container"
 }
-
-🧹 Destroy Resources
-terraform destroy
-
-👩‍💻 Author
-
-Priya Jaiswal
-🌐 Terraform | ☁️ Azure | 🚀 DevOps Enthusiast
-📘 GitHub: Pjaisw1103
-
-💬 “Automating Cloud Infrastructure with Terraform Modules!”
+<h2 align="center">🧹 Destroy Resources</h2> <pre> terraform destroy </pre>
+<h2 align="center">👩‍💻 Author</h2> <p align="center"> <b>Priya Jaiswal</b><br> 🌐 Terraform | ☁️ Azure | 🚀 DevOps Enthusiast<br> 📘 GitHub: <a href="https://github.com/Pjaisw1103">Pjaisw1103</a><br> 💬 “Automating Cloud Infrastructure with Terraform Modules!” </p> ```
