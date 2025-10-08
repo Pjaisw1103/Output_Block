@@ -1,45 +1,60 @@
-☁️✨ Terraform Azure Storage Automation (Dev & Prod) ✨☁️
+🌟 Terraform Azure Storage Automation (Dev & Prod) 🌟
+<h2 align="center">☁️ Terraform Azure Storage Automation using Modules ☁️</h2>
+<p align="center">
+  <a href="https://www.terraform.io/">
+    <img src="https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white"/>
+  </a>
+  <a href="https://azure.microsoft.com/">
+    <img src="https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white"/>
+  </a>
+  <a href="https://devops.com/">
+    <img src="https://img.shields.io/badge/DevOps-F05032?style=for-the-badge&logo=devops&logoColor=white"/>
+  </a>
+</p>
 
-This Terraform project automates the creation of Azure Resource Group, Storage Account, and Storage Container using modular Terraform configuration.
-It demonstrates reusable modules, dev/prod environments, and the use of Terraform Output Block to display important resource info.
+---
 
-🧭 Architecture Diagram
+## 🧭 Architecture Diagram
 
-🌍 Azure Cloud
-└── 🗂️ Resource Group (demo-rg)
-  └── ☁️ Storage Account (demostrg)
-    └── 📁 Storage Container (democntr)
+<p align="center">
+🌍 Azure Cloud<br>
+└── 🗂️ <b>Resource Group</b> (`demo-rg`)<br>
+  └── ☁️ <b>Storage Account</b> (`demostrg`)<br>
+    └── 📁 <b>Storage Container</b> (`democntr`)
+</p>
 
-🔹 Explanation:
+**Explanation:**  
+<ul>
+<li>🗂️ Resource Group is the parent container</li>
+<li>☁️ Storage Account is created inside Resource Group</li>
+<li>📁 Container resides inside Storage Account</li>
+<li>✅ Separate modules are used for reusability</li>
+<li>🌱 Dev and Prod environments with independent Terraform state</li>
+</ul>
 
-🗂️ Resource Group is the parent container
+---
 
-☁️ Storage Account is created inside the Resource Group
+## 📁 Project Overview
 
-📁 Container resides inside the Storage Account
+**Resources Created:**
+<ul>
+<li>🗂️ Azure Resource Group</li>
+<li>☁️ Azure Storage Account</li>
+<li>📁 Azure Storage Container</li>
+</ul>
 
-✅ Modules are reusable for clean code
+**Modules Used:**
+<ul>
+<li>🛠️ <code>azurerm_resource_group</code></li>
+<li>🛠️ <code>azurerm_storage_account</code></li>
+<li>🛠️ <code>azurerm_storage_container</code></li>
+</ul>
 
-🌱 Separate dev and prod environments with independent states
+---
 
-📂 Project Overview
-Resources Created
+## 🧱 Root Module Configuration
 
-🗂️ Azure Resource Group
-
-☁️ Azure Storage Account
-
-📁 Azure Storage Container
-
-Modules Used
-
-🛠️ azurerm_resource_group
-
-🛠️ azurerm_storage_account
-
-🛠️ azurerm_storage_container
-
-🧱 Root Module Configuration
+```hcl
 module "azurerm-rg" {
   source      = "../../Module/azurerm_resource_group"
   rg-name     = "demo-rg"
@@ -61,11 +76,11 @@ module "azurerm-cntr" {
 
 ⚙️ Folder Structure
 Root/
-├── main.tf          # Calls all modules
-├── provider.tf      # Azure provider configuration
-├── variables.tf     # Input variables
-├── outputs.tf       # Output block definitions
-└── README.md        # Documentation
+├── main.tf
+├── provider.tf
+├── variables.tf
+├── outputs.tf
+└── README.md
 
 Module/
 ├── azurerm_resource_group/
@@ -78,10 +93,8 @@ Module/
 ⚙️ Prerequisites
 
 ✅ Terraform installed
-
-✅ Azure CLI installed and logged in (az login)
-
-✅ Active Azure subscription
+✅ Azure CLI installed (az login)
+✅ Active Azure Subscription
 
 🪜 Steps to Deploy
 
