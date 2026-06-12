@@ -1,7 +1,7 @@
 # ☁️ Azure Storage Automation with Terraform
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=240&text=Azure%20Storage%20Automation&fontSize=42&fontAlignY=40&desc=Terraform%20%7C%20Azure%20Storage%20%7C%20Dev%20%26%20Prod&descAlignY=60&fontColor=ffffff&animation=fadeIn&color=0:0078D4,50:623CE4,100:0D1117"/>
+  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=22&duration=2500&pause=1000&color=0078D4&center=true&vCenter=true&width=800&lines=Terraform+Based+Azure+Storage+Provisioning;Reusable+Infrastructure+Modules;Dev+and+Production+Environment+Automation"/>
 </p>
 
 <p align="center">
