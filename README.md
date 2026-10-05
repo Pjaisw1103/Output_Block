@@ -1,171 +1,129 @@
 # ☁️ Azure Storage Automation with Terraform
 
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=22&duration=2500&pause=1000&color=0078D4&center=true&vCenter=true&width=800&lines=Terraform+Based+Azure+Storage+Provisioning;Reusable+Infrastructure+Modules;Dev+and+Production+Environment+Automation"/>
-</p>
+[![Terraform](https://img.shields.io/badge/Terraform-1.x-623CE4?style=flat-square&logo=terraform&logoColor=white)](https://www.terraform.io/)
+[![Azure](https://img.shields.io/badge/Microsoft_Azure-Cloud-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)](https://azure.microsoft.com/)
+[![IaC](https://img.shields.io/badge/IaC-Infrastructure_as_Code-2ea44f?style=flat-square)](https://microservices.io/patterns/deployment/infrastructure-as-code.html)
+[![Environment](https://img.shields.io/badge/Environment-Dev_%7C_Prod-orange?style=flat-square)]()
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Microsoft%20Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white"/>
-  <img src="https://img.shields.io/badge/IaC-Infrastructure%20as%20Code-success?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Environment-Dev%20%7C%20Prod-orange?style=for-the-badge"/>
-</p>
+An automated Infrastructure as Code (IaC) solution built with **Terraform** to provision Azure Storage infrastructure across multiple environments (**Dev** and **Prod**). Built using a clean modular architecture ensuring code reusability, isolation, and seamless maintainability.
 
 ---
 
-## 📌 Overview
-
-This project automates the provisioning of Azure Storage resources using Terraform.
-
-The infrastructure is built using reusable modules and supports separate **Development** and **Production** environments for better scalability, isolation, and maintainability.
-
----
-
-## 🏗️ Architecture
+## 🏗️ Infrastructure Architecture
 
 ```text
-Azure Cloud
-│
-└── Resource Group
-    │
-    └── Storage Account
-        │
-        └── Storage Container
+┌─────────────────────────────────────────────────────────────┐
+│                       Azure Cloud                           │
+│                                                             │
+│   ┌─────────────────────────────────────────────────────┐   │
+│   │ Resource Group (demo-rg)                            │   │
+│   │   └── Storage Account (demostrg)                    │   │
+│   │         └── Blob Container (democntr)               │   │
+│   └─────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## ✨ Features
+## ✨ Key Features
 
-| Feature                   | Description                            |
-| ------------------------- | -------------------------------------- |
-| 🏗️ Modular Design        | Reusable Terraform modules             |
-| 🌍 Multi-Environment      | Separate Dev & Prod configurations     |
-| ☁️ Azure Storage          | Automated Storage Account provisioning |
-| 📁 Blob Containers        | Automated container creation           |
-| 🔄 Idempotent Deployments | Safe repeatable infrastructure changes |
-| 🚀 Infrastructure as Code | Fully managed through Terraform        |
-
----
-
-## 📦 Resources Created
-
-| Resource          | Purpose                               |
-| ----------------- | ------------------------------------- |
-| Resource Group    | Logical container for Azure resources |
-| Storage Account   | Azure storage service                 |
-| Storage Container | Blob storage container                |
+* **🧩 Modular Architecture**: Reusable Terraform modules for Resource Group, Storage Account, and Blob Container.
+* **🌍 Multi-Environment Deployment**: Isolated configurations for `dev` and `prod` environments.
+* **🔗 Dynamic Output Binding**: Pass outputs (e.g., `strg-id`) seamlessly between modules as implicit dependencies.
+* **⚡ Repeatable & Idempotent**: Safe, reliable infrastructure provisioning and destruction.
 
 ---
 
 ## 📂 Repository Structure
 
 ```text
-.
-├── main.tf
-├── provider.tf
-├── variables.tf
-├── outputs.tf
-├── README.md
-│
-└── Module/
-    ├── azurerm_resource_group/
-    ├── azurerm_storage_account/
-    └── azurerm_storage_container/
+Output_Block/
+├── Environment/
+│   ├── dev/
+│   │   ├── main.tf
+│   │   └── provider.tf
+│   └── prod/
+│       ├── main.tf
+│       └── provider.tf
+├── Module/
+│   ├── azurerm_resource_group/
+│   │   ├── main.tf
+│   │   └── variable.tf
+│   ├── azurerm_storage_account/
+│   │   ├── main.tf
+│   │   ├── output.tf
+│   │   └── variable.tf
+│   └── azurerm_storage_container/
+│       ├── main.tf
+│       └── variable.tf
+├── .gitignore
+└── README.md
 ```
 
 ---
 
-## 🛠️ Technology Stack
+## 📦 Provisioned Resources
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=terraform,azure,git,github,vscode"/>
-</p>
+| Module | Resource Type | Description |
+| :--- | :--- | :--- |
+| `azurerm_resource_group` | `azurerm_resource_group` | Logical container for Azure resources |
+| `azurerm_storage_account` | `azurerm_storage_account` | Azure Blob Storage service |
+| `azurerm_storage_container` | `azurerm_storage_container` | Blob storage container inside storage account |
 
 ---
 
-## 🚀 Deployment Steps
+## 🛠️ Prerequisites
 
-### Clone Repository
+Before executing the Terraform code, ensure you have:
+
+* [Terraform CLI](https://developer.hashicorp.com/terraform/downloads) (v1.0+) installed.
+* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) installed.
+* Authenticated Azure session (`az login`).
+
+---
+
+## 🚀 Quick Start & Deployment Guide
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/Pjaisw1103/Output_Block.git
 cd Output_Block
 ```
 
-### Initialize Terraform
+### 2. Choose Environment & Navigate
 
+For **Development**:
 ```bash
-terraform init
+cd Environment/dev
 ```
 
-### Validate Configuration
+For **Production**:
+```bash
+cd Environment/prod
+```
+
+### 3. Initialize & Validate Terraform
 
 ```bash
+# Initialize backend and providers
+terraform init
+
+# Validate configuration syntax
 terraform validate
 ```
 
-### Preview Changes
+### 4. Review & Apply Infrastructure
 
 ```bash
+# Preview changes to be made
 terraform plan
-```
 
-### Deploy Infrastructure
-
-```bash
+# Apply infrastructure deployment
 terraform apply -auto-approve
 ```
 
----
-
-## 📤 Outputs
-
-```hcl
-output "rg_name" {
-  value = module.azurerm-rg.rg-name
-}
-
-output "storage_account_name" {
-  value = module.azurerm-strg.strg-name
-}
-
-output "container_name" {
-  value = module.azurerm-cntr.cntr-name
-}
-```
-
-Example Output:
-
-```text
-rg_name              = "demo-rg"
-storage_account_name = "demostrg"
-container_name       = "democntr"
-```
-
----
-
-## 🔄 Environment Strategy
-
-```text
-Development
-│
-├── Testing
-├── Validation
-└── Feature Deployment
-
-Production
-│
-├── Stable Workloads
-├── Secure Resources
-└── Business Operations
-```
-
----
-
-## 🧹 Cleanup Resources
-
-To remove all deployed resources:
+### 5. Destroy Infrastructure (Optional)
 
 ```bash
 terraform destroy -auto-approve
@@ -173,35 +131,38 @@ terraform destroy -auto-approve
 
 ---
 
-## 📈 Learning Outcomes
+## 📤 Module Output Mechanics
 
-* Terraform Modules
-* Azure Storage Services
-* Infrastructure as Code (IaC)
-* Multi-Environment Deployment Strategy
-* Terraform Outputs & Variables
-* Azure Resource Management
+The `azurerm_storage_account` module exports output attributes that are consumed downstream by dependent modules:
+
+**Module Output (`Module/azurerm_storage_account/output.tf`)**:
+```hcl
+output "strg-id" {
+  value = azurerm_storage_account.strg.id
+}
+```
+
+**Module Consumption (`Environment/dev/main.tf`)**:
+```hcl
+module "azurerm-cntr" {
+  source    = "../../Module/azurerm_storage_container"
+  cntr-name = "democntr"
+  strg-id   = module.azurerm-strg.strg-id
+}
+```
 
 ---
 
 ## 👩‍💻 Author
 
-**Priya Jaiswal**
+**Priya Jaiswal**  
+*Azure Cloud | DevOps | Infrastructure as Code*
 
-Azure Cloud | DevOps | Terraform
-
-<p align="center">
-  <a href="https://github.com/Pjaisw1103">
-    <img src="https://img.shields.io/badge/GitHub-Pjaisw1103-181717?style=for-the-badge&logo=github"/>
-  </a>
-
-  <a href="https://linkedin.com/in/priya-jaiswal1103">
-    <img src="https://img.shields.io/badge/LinkedIn-Priya%20Jaiswal-0078D4?style=for-the-badge&logo=linkedin"/>
-  </a>
-</p>
+[![GitHub](https://img.shields.io/badge/GitHub-Pjaisw1103-181717?style=flat-square&logo=github)](https://github.com/Pjaisw1103)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Priya_Jaiswal-0078D4?style=flat-square&logo=linkedin)](https://linkedin.com/in/priya-jaiswal1103)
 
 ---
 
 <p align="center">
-⭐ If you found this project useful, consider giving it a star.
+⭐ If you found this project helpful, give it a star!
 </p>
